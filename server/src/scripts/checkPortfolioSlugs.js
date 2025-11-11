@@ -1,0 +1,34 @@
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.join(__dirname, '../../.env') });
+
+const checkSlugs = async () => {
+  try {
+    console.log('🔗 Connexion à MongoDB...');
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log('✅ Connecté à MongoDB Atlas\n');
+
+    const portfolios = await mongoose.connection.db.collection('portfolios').find({}).toArray();
+    
+    console.log('📊 Vérification des slugs Portfolio:\n');
+    
+    portfolios.forEach((portfolio, index) => {
+      console.log(`${index + 1}. ${portfolio.title}`);
+      console.log(`   Slug: ${portfolio.slug || '❌ MANQUANT'}`);
+      console.log(`   ID: ${portfolio._id}\n`);
+    });
+
+    console.log('\n🎉 Vérification terminée !');
+    process.exit(0);
+  } catch (error) {
+    console.error('❌ Erreur:', error);
+    process.exit(1);
+  }
+};
+
+checkSlugs();
