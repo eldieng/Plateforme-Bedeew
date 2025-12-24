@@ -415,16 +415,30 @@ const Home = () => {
             {portfolios.slice(0, 3).map((project, index) => {
               console.log(`Projet ${index}:`, project.title, 'Slug:', project.slug);
               return (
-              <motion.div
+              <Link
                 key={project._id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                to={project.slug ? `/portfolio/${project.slug}` : '#'}
+                onClick={(e) => {
+                  console.log('Clic sur carte projet:', {
+                    title: project.title,
+                    slug: project.slug,
+                    id: project._id
+                  });
+                  if (!project.slug) {
+                    e.preventDefault();
+                    toast.error('Ce projet n\'a pas de lien disponible');
+                  }
+                }}
               >
-                {/* Image */}
-                <div className="relative h-80 overflow-hidden">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                >
+                  {/* Image */}
+                  <div className="relative h-80 overflow-hidden">
                   {project.images && project.images[0] ? (
                     <img 
                       src={project.images[0].url} 
@@ -445,14 +459,10 @@ const Home = () => {
                     </div>
                     <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                     <p className="text-sm text-gray-200 mb-4 line-clamp-2">{project.description}</p>
-                    <Link 
-                      to={`/portfolio/${project.slug}`}
-                      onClick={() => console.log('Clic sur:', project.slug)}
-                      className="inline-flex items-center text-white font-semibold hover:text-primary-300 transition-colors"
-                    >
+                    <div className="inline-flex items-center text-white font-semibold">
                       Voir le projet
                       <ExternalLink size={16} className="ml-2" />
-                    </Link>
+                    </div>
                   </div>
                 </div>
 
@@ -462,7 +472,8 @@ const Home = () => {
                   <p className="text-sm text-gray-200">{project.category}</p>
                 </div>
               </motion.div>
-              );
+            </Link>
+            );
             })}
           </div>
 

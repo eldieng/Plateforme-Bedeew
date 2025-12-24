@@ -36,22 +36,28 @@ const contactSchema = new mongoose.Schema({
   },
   projectType: {
     type: String,
-    enum: ['web', 'mobile', 'design', 'seo', 'social-media', 'video', 'other'],
+    enum: {
+      values: ['web', 'mobile', 'design', 'seo', 'social-media', 'video', 'other'],
+      message: '{VALUE} is not a valid project type'
+    },
     required: function() {
       return this.isQuote;
-    }
+    },
+    default: undefined
   },
   budget: {
     type: String,
     required: function() {
       return this.isQuote;
-    }
+    },
+    default: undefined
   },
   deadline: {
     type: String,
     required: function() {
       return this.isQuote;
-    }
+    },
+    default: undefined
   },
   adminNotes: {
     type: String,

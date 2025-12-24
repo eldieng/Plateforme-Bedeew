@@ -1,19 +1,26 @@
 import express from 'express';
 import { getBlogs, getBlog, getBlogBySlug, createBlog, updateBlog, deleteBlog } from '../controllers/blogController.js';
 import { protect, authorize } from '../middleware/auth.js';
+import {
+  validateCreateBlog,
+  validateUpdateBlog,
+  validateObjectId,
+  validateSlug,
+  validatePagination
+} from '../middleware/validators.js';
 
 const router = express.Router();
 
 router.route('/')
-  .get(getBlogs)
-  .post(protect, authorize('admin'), createBlog);
+  .get(validatePagination, getBlogs)
+  .post(protect, authorize('admin'), validateCreateBlog, createBlog);
 
 router.route('/slug/:slug')
-  .get(getBlogBySlug);
+  .get(validateSlug, getBlogBySlug);
 
 router.route('/:id')
-  .get(getBlog)
-  .put(protect, authorize('admin'), updateBlog)
-  .delete(protect, authorize('admin'), deleteBlog);
+  .get(validateObjectId, getBlog)
+  .put(protect, authorize('admin'), validateUpdateBlog, updateBlog)
+  .delete(protect, authorize('admin'), validateObjectId, deleteBlog);
 
 export default router;

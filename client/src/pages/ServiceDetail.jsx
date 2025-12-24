@@ -90,21 +90,17 @@ const ServiceDetail = () => {
             <p className="text-xl text-primary-100 mb-8">{service.shortDescription}</p>
             
             <div className="flex flex-wrap gap-6">
-              {service.pricing?.startingPrice && (
-                <div className="flex items-center space-x-2">
-                  <DollarSign className="text-primary-200" size={20} />
-                  <span className="text-lg">
-                    À partir de <strong>{service.pricing.startingPrice.toLocaleString()} {service.pricing.currency}</strong>
-                  </span>
-                </div>
-              )}
               <div className="flex items-center space-x-2">
                 <Clock className="text-primary-200" size={20} />
-                <span className="text-lg">4-8 semaines</span>
+                <span className="text-lg">Délai selon projet</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Users className="text-primary-200" size={20} />
                 <span className="text-lg">Support inclus</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <DollarSign className="text-primary-200" size={20} />
+                <span className="text-lg">Devis personnalisé</span>
               </div>
             </div>
           </motion.div>

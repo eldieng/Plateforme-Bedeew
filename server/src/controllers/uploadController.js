@@ -5,13 +5,19 @@ import { cloudinary } from '../config/cloudinary.js';
 // @access  Private/Admin
 export const uploadImage = async (req, res, next) => {
   try {
+    console.log('📤 Upload request received');
+    console.log('File:', req.file);
+    
     if (!req.file) {
+      console.log('❌ No file provided');
       return res.status(400).json({
         success: false,
         message: 'Aucun fichier fourni'
       });
     }
 
+    console.log('✅ File uploaded to Cloudinary:', req.file.path);
+    
     res.status(200).json({
       success: true,
       data: {
@@ -20,6 +26,7 @@ export const uploadImage = async (req, res, next) => {
       }
     });
   } catch (error) {
+    console.error('❌ Upload error:', error);
     next(error);
   }
 };

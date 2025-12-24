@@ -1,6 +1,6 @@
 import express from 'express';
-import { upload } from '../config/localStorage.js';
-import { uploadImage, uploadMultipleImages, deleteImage } from '../controllers/uploadLocalController.js';
+import { upload } from '../config/cloudinary.js';
+import { uploadImage, uploadMultipleImages, deleteImage } from '../controllers/uploadController.js';
 import { protect, authorize } from '../middleware/auth.js';
 
 const router = express.Router();
