@@ -1,0 +1,8 @@
+{
+  "name": "bedeew-digital",
+  "framework": "express",
+  "buildCommand": "cd server && npm install",
+  "startCommand": "cd server && npm start",
+  "outputDirectory": "server",
+  "nodeVersion": "18"
+}
