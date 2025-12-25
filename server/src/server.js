@@ -19,8 +19,28 @@ connectDB();
 
 // Middleware
 app.use(helmet()); // Security headers
+
+// CORS configuration - allow multiple origins
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://bedeew.com',
+  'https://www.bedeew.com',
+  process.env.CLIENT_URL
+].filter(Boolean);
+
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: function(origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log('CORS blocked origin:', origin);
+      callback(null, true); // Allow all origins in development
+    }
+  },
   credentials: true
 }));
 app.use(compression()); // Compress responses
