@@ -168,14 +168,22 @@ const ServiceDetail = () => {
                 <div className="bg-primary-50 rounded-2xl p-6">
                   <h4 className="font-bold text-gray-900 mb-3">Besoin d'aide ?</h4>
                   <p className="text-sm text-gray-600 mb-4">
-                    Notre équipe est là pour répondre à toutes vos questions
+                    Notre équipe à Dakar est là pour répondre à toutes vos questions
                   </p>
-                  <a 
-                    href="tel:+221XXXXXXXXX" 
-                    className="text-primary-600 font-semibold hover:underline"
-                  >
-                    +221 XX XXX XX XX
-                  </a>
+                  <div className="space-y-2">
+                    <a 
+                      href="tel:+221770555445" 
+                      className="block text-primary-600 font-semibold hover:underline"
+                    >
+                      📞 77 055 54 45
+                    </a>
+                    <a 
+                      href="tel:+221774548661" 
+                      className="block text-primary-600 font-semibold hover:underline"
+                    >
+                      📞 77 454 86 61
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
