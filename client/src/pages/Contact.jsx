@@ -136,9 +136,10 @@ const Contact = () => {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                 <Mail className="mx-auto mb-3 text-primary-400" size={32} />
                 <div className="text-white font-semibold mb-1">Email</div>
-                <a href="mailto:contact@bedeew.digital" className="text-primary-300 hover:text-primary-200 text-sm">
-                  contact@bedeew.digital
-                </a>
+                <div className="text-primary-300 text-sm">
+                  <a href="mailto:babacarsambayatte@gmail.com" className="hover:text-primary-200 block">babacarsambayatte@gmail.com</a>
+                  <a href="mailto:el.elhadji.dieng@gmail.com" className="hover:text-primary-200 block">el.elhadji.dieng@gmail.com</a>
+                </div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                 <Phone className="mx-auto mb-3 text-primary-400" size={32} />

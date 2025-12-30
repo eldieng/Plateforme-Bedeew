@@ -53,9 +53,13 @@ const Footer = () => {
               Votre partenaire digital à Dakar pour la communication, la formation et le recrutement au Sénégal.
             </p>
             <div className="space-y-2">
-              <a href="mailto:contact@bedeew.digital" className="flex items-center space-x-2 text-sm hover:text-primary-400 transition-colors">
+              <a href="mailto:babacarsambayatte@gmail.com" className="flex items-center space-x-2 text-sm hover:text-primary-400 transition-colors">
                 <Mail size={16} />
-                <span>contact@bedeew.digital</span>
+                <span>babacarsambayatte@gmail.com</span>
+              </a>
+              <a href="mailto:el.elhadji.dieng@gmail.com" className="flex items-center space-x-2 text-sm hover:text-primary-400 transition-colors">
+                <Mail size={16} />
+                <span>el.elhadji.dieng@gmail.com</span>
               </a>
               <a href="tel:+221770555445" className="flex items-center space-x-2 text-sm hover:text-primary-400 transition-colors">
                 <Phone size={16} />
