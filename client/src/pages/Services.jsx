@@ -45,9 +45,9 @@ const Services = () => {
     <div>
       <section className="section bg-gradient-to-br from-primary-600 to-secondary-600 text-white">
         <div className="container text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nos Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Nos Services Digitaux à Dakar</h1>
           <p className="text-xl max-w-3xl mx-auto">
-            Des solutions digitales complètes pour propulser votre entreprise vers le succès
+            Des solutions digitales complètes à Dakar pour propulser votre entreprise vers le succès au Sénégal
           </p>
         </div>
       </section>
@@ -85,9 +85,9 @@ const Services = () => {
 
       <section className="section bg-primary-600 text-white">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-6">Besoin d'un Service Personnalisé ?</h2>
+          <h2 className="text-3xl font-bold mb-6">Besoin d'un Service Personnalisé à Dakar ?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contactez-nous pour discuter de vos besoins spécifiques
+            Contactez notre équipe à Dakar pour discuter de vos besoins spécifiques
           </p>
           <Link to="/contact" className="btn-lg bg-white text-primary-600 hover:bg-gray-100">
             Demander un devis

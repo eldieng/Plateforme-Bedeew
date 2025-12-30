@@ -128,7 +128,7 @@ const Contact = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8">
-              Une question ? Un projet ? Nous sommes à votre écoute
+              Une question ? Un projet à Dakar ? Notre équipe au Sénégal est à votre écoute
             </p>
 
             {/* Contact Info Cards */}
@@ -152,8 +152,8 @@ const Contact = () => {
                 <MapPin className="mx-auto mb-3 text-primary-400" size={32} />
                 <div className="text-white font-semibold mb-1">Adresse</div>
                 <div className="text-primary-300 text-sm">
-                  <div>Pharmacie Mame Diarra</div>
-                  <div>Parcelle Soprim</div>
+                  <div>Dakar, Sénégal</div>
+                  <div>Pharmacie Mame Diarra, Parcelle Soprim</div>
                 </div>
               </div>
             </div>

@@ -50,7 +50,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-sm mb-4">
-              Votre partenaire digital pour la communication, la formation et le recrutement au Sénégal.
+              Votre partenaire digital à Dakar pour la communication, la formation et le recrutement au Sénégal.
             </p>
             <div className="space-y-2">
               <a href="mailto:contact@bedeew.digital" className="flex items-center space-x-2 text-sm hover:text-primary-400 transition-colors">
@@ -67,7 +67,7 @@ const Footer = () => {
               </a>
               <div className="flex items-center space-x-2 text-sm">
                 <MapPin size={16} />
-                <span>Pharmacie Mame Diarra, Parcelle Soprim</span>
+                <span>Dakar, Sénégal - Pharmacie Mame Diarra, Parcelle Soprim</span>
               </div>
             </div>
           </div>

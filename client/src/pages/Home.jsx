@@ -105,7 +105,7 @@ const Home = () => {
             >
               <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
                 <Sparkles className="text-yellow-400" size={20} />
-                <span className="text-white text-sm font-medium">Votre Partenaire Digital au Sénégal</span>
+                <span className="text-white text-sm font-medium">Votre Partenaire Digital à Dakar, Sénégal</span>
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
@@ -117,8 +117,8 @@ const Home = () => {
               </h1>
               
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Agence de communication digitale, formations gratuites et plateforme de recrutement. 
-                Nous propulsons votre entreprise vers le succès numérique.
+                Agence de communication digitale à Dakar, formations gratuites et plateforme de recrutement. 
+                Nous propulsons votre entreprise vers le succès numérique au Sénégal.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -274,7 +274,7 @@ const Home = () => {
               </p>
               
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Notre mission est de démocratiser l'accès aux services digitaux de qualité, faciliter l'apprentissage 
+                Notre mission est de démocratiser l'accès aux services digitaux de qualité à Dakar, faciliter l'apprentissage 
                 des compétences numériques et améliorer l'employabilité au Sénégal.
               </p>
 
@@ -325,7 +325,7 @@ const Home = () => {
               Services Vedettes
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Des solutions digitales complètes pour propulser votre entreprise vers le succès
+              Des solutions digitales complètes à Dakar pour propulser votre entreprise vers le succès
             </p>
           </motion.div>
 
