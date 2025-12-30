@@ -1,0 +1,17 @@
+# Robots.txt pour Bedeew Digital
+# https://bedeew.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bedeew.com/sitemap.xml
+
+# Bloquer les pages admin
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+
+# Bloquer les fichiers sensibles
+Disallow: /*.json$
+Disallow: /api/
