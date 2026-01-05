@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Calendar, Clock, User, ArrowLeft, Tag, Home, ChevronRight } from 'lucide-react';
+import { Calendar, Clock, User, ArrowLeft, Tag, Home, ChevronRight, BookOpen, ArrowRight, Share2, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 
@@ -33,8 +33,11 @@ const BlogDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="relative">
+          <div className="w-16 h-16 border-4 border-primary-200 rounded-full animate-spin border-t-primary-600"></div>
+          <BookOpen className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary-600" size={24} />
+        </div>
       </div>
     );
   }
@@ -67,50 +70,73 @@ const BlogDetail = () => {
         </div>
       </div>
 
-      {/* Article */}
-      <article className="section">
-        <div className="container max-w-4xl">
+      {/* Hero Header */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-primary-600 to-secondary-600 text-white py-16 lg:py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container relative z-10 max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
-            {/* Header */}
-            <div className="mb-8">
-              <div className="flex items-center space-x-3 mb-4">
-                <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium capitalize">
-                  {blog.category}
-                </span>
-                <div className="flex items-center space-x-4 text-sm text-gray-500">
-                  <div className="flex items-center space-x-1">
-                    <Calendar size={14} />
-                    <span>{new Date(blog.createdAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Clock size={14} />
-                    <span>{blog.readTime} min de lecture</span>
-                  </div>
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium capitalize">
+                {blog.category}
+              </span>
+              <div className="flex items-center space-x-4 text-sm text-primary-100">
+                <div className="flex items-center space-x-1">
+                  <Calendar size={14} />
+                  <span>{new Date(blog.createdAt).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <Clock size={14} />
+                  <span>{blog.readTime} min de lecture</span>
                 </div>
               </div>
+            </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                {blog.title}
-              </h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+              {blog.title}
+            </h1>
 
+            <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white font-bold">
                   {blog.author?.firstName?.charAt(0)}{blog.author?.lastName?.charAt(0)}
                 </div>
                 <div>
-                  <div className="font-medium text-gray-900">
+                  <div className="font-medium">
                     {blog.author?.firstName} {blog.author?.lastName}
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-primary-200">
                     {blog.views || 0} vues
                   </div>
                 </div>
               </div>
             </div>
+          </motion.div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#F9FAFB"/>
+          </svg>
+        </div>
+      </section>
+
+      {/* Article Content */}
+      <article className="py-12 lg:py-16 bg-gray-50">
+        <div className="container max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white rounded-2xl shadow-sm p-8 lg:p-12"
+          >
 
             {/* Featured Image */}
             {blog.image?.url && (

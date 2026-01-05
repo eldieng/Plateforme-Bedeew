@@ -4,9 +4,9 @@ import axios from 'axios';
 import { 
   ArrowLeft, CheckCircle, Clock, DollarSign, Users, 
   Star, ChevronDown, ChevronUp, ArrowRight, Quote,
-  Home, ChevronRight
+  Home, ChevronRight, Sparkles, Shield, Zap
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
 
 const ServiceDetail = () => {
@@ -43,8 +43,11 @@ const ServiceDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="relative">
+          <div className="w-16 h-16 border-4 border-primary-200 rounded-full animate-spin border-t-primary-600"></div>
+          <Sparkles className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary-600" size={24} />
+        </div>
       </div>
     );
   }
@@ -78,32 +81,55 @@ const ServiceDetail = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-secondary-600 text-white py-16">
-        <div className="container">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 text-white py-20 lg:py-28">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{service.title}</h1>
-            <p className="text-xl text-primary-100 mb-8">{service.shortDescription}</p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+            >
+              <Sparkles size={18} className="text-yellow-300" />
+              <span className="text-sm font-medium">Service professionnel</span>
+            </motion.div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">{service.title}</h1>
+            <p className="text-xl md:text-2xl text-primary-100 mb-10">{service.shortDescription}</p>
             
-            <div className="flex flex-wrap gap-6">
-              <div className="flex items-center space-x-2">
-                <Clock className="text-primary-200" size={20} />
-                <span className="text-lg">Délai selon projet</span>
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
+                <Clock className="text-yellow-300" size={20} />
+                <span>Délai selon projet</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Users className="text-primary-200" size={20} />
-                <span className="text-lg">Support inclus</span>
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
+                <Shield className="text-yellow-300" size={20} />
+                <span>Support inclus</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <DollarSign className="text-primary-200" size={20} />
-                <span className="text-lg">Devis personnalisé</span>
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
+                <Zap className="text-yellow-300" size={20} />
+                <span>Devis gratuit</span>
               </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Wave Separator */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+          </svg>
         </div>
       </section>
 

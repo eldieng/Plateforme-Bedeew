@@ -4,7 +4,7 @@ import axios from 'axios';
 import { 
   ArrowLeft, Calendar, Tag, ExternalLink, Home, ChevronRight,
   TrendingUp, Users, Clock, Award, Code, Palette, CheckCircle,
-  ArrowRight, Quote, Eye
+  ArrowRight, Quote, Eye, Sparkles, Layers
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
@@ -38,8 +38,11 @@ const PortfolioDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="relative">
+          <div className="w-16 h-16 border-4 border-primary-200 rounded-full animate-spin border-t-primary-600"></div>
+          <Layers className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary-600" size={24} />
+        </div>
       </div>
     );
   }
@@ -86,21 +89,35 @@ const PortfolioDetail = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-secondary-600 text-white py-16">
-        <div className="container">
+      <section className="relative overflow-hidden bg-gradient-to-br from-secondary-600 via-primary-600 to-primary-700 text-white py-20 lg:py-28">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-              <Tag size={16} />
-              <span className="text-sm font-medium capitalize">{project.category}</span>
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                <Tag size={16} className="text-yellow-300" />
+                <span className="text-sm font-medium capitalize">{project.category}</span>
+              </span>
+              {project.featured && (
+                <span className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-400 to-orange-400 px-4 py-2 rounded-full">
+                  <Sparkles size={16} />
+                  <span className="text-sm font-semibold">Projet vedette</span>
+                </span>
+              )}
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{project.title}</h1>
-            <p className="text-xl text-primary-100 mb-8">{project.description}</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">{project.title}</h1>
+            <p className="text-xl md:text-2xl text-primary-100 mb-10">{project.description}</p>
             
             <div className="flex flex-wrap gap-6">
               {project.client?.name && (
