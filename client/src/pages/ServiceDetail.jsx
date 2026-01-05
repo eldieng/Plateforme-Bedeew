@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
+import SEO from '../components/SEO';
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -63,6 +64,14 @@ const ServiceDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title={service.title}
+        description={`${service.shortDescription} - Service professionnel à Dakar, Sénégal. Obtenez un devis gratuit.`}
+        keywords={`${service.title} Dakar, ${service.category || 'service digital'} Sénégal`}
+        url={`/services/${service.slug}`}
+        image={service.image?.url}
+      />
+
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="container py-4">

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Eye, ArrowRight, ExternalLink, Sparkles, Layers, Filter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
+import SEO from '../components/SEO';
 
 const Portfolio = () => {
   const [portfolios, setPortfolios] = useState([]);
@@ -41,6 +42,13 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title="Notre Portfolio"
+        description="Découvrez nos réalisations digitales à Dakar : sites web, applications, designs et campagnes marketing. Projets réussis pour des clients au Sénégal et en Afrique."
+        keywords="portfolio digital Dakar, réalisations web Sénégal, projets digitaux Dakar, agence web portfolio"
+        url="/portfolio"
+      />
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-secondary-600 via-primary-600 to-primary-700 text-white py-24 lg:py-32">
         {/* Background Elements */}

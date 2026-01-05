@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Calendar, Clock, User, ArrowRight, Search, Sparkles, BookOpen, TrendingUp, Tag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
+import SEO from '../components/SEO';
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -59,6 +60,13 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title="Blog Digital"
+        description="Conseils, tutoriels et actualités sur le marketing digital, le développement web et le design à Dakar. Restez informé des dernières tendances digitales au Sénégal."
+        keywords="blog digital Dakar, conseils marketing Sénégal, tutoriels web Dakar, actualités digitales"
+        url="/blog"
+      />
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-primary-600 to-secondary-600 text-white py-24 lg:py-32">
         {/* Background Elements */}

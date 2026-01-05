@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Code, Palette, TrendingUp, Search, Video, Smartphone, ArrowRight, Sparkles, CheckCircle, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
+import SEO from '../components/SEO';
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -57,6 +58,13 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title="Nos Services Digitaux"
+        description="Découvrez nos services digitaux à Dakar : développement web, marketing digital, design graphique, SEO et community management. Solutions sur mesure pour votre entreprise au Sénégal."
+        keywords="services digitaux Dakar, développement web Sénégal, marketing digital Dakar, design graphique Dakar"
+        url="/services"
+      />
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 text-white py-24 lg:py-32">
         {/* Background Pattern */}

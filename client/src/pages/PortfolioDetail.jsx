@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
+import SEO from '../components/SEO';
 
 const PortfolioDetail = () => {
   const { slug } = useParams();
@@ -69,8 +70,18 @@ const PortfolioDetail = () => {
     icon: iconMap[m.icon] || Award
   })) || [];
 
+  const primaryImage = project.images?.find(img => img.isPrimary) || project.images?.[0];
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title={project.title}
+        description={`${project.description} - Projet réalisé par Bedeew Digital à Dakar, Sénégal.`}
+        keywords={`${project.title}, ${project.category} Dakar, projet digital Sénégal, ${project.technologies?.join(', ') || ''}`}
+        url={`/portfolio/${project.slug}`}
+        image={primaryImage?.url}
+      />
+
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="container py-4">

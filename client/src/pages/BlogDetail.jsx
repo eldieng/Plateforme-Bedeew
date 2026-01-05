@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Calendar, Clock, User, ArrowLeft, Tag, Home, ChevronRight, BookOpen, ArrowRight, Share2, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
+import SEO from '../components/SEO';
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -53,6 +54,18 @@ const BlogDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO 
+        title={blog.title}
+        description={blog.excerpt || `${blog.title} - Article de blog par Bedeew Digital à Dakar.`}
+        keywords={`${blog.category} Dakar, ${blog.tags?.join(', ') || ''}, blog digital Sénégal`}
+        url={`/blog/${blog.slug}`}
+        image={blog.image?.url}
+        type="article"
+        author={`${blog.author?.firstName || ''} ${blog.author?.lastName || ''}`}
+        publishedTime={blog.createdAt}
+        modifiedTime={blog.updatedAt}
+      />
+
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="container py-4">
